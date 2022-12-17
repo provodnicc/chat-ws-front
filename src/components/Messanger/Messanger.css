@@ -1,0 +1,20 @@
+.createBtn{
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px gray;
+    width: 20vw;
+    margin: auto;
+    text-align: center;
+}
+.messanger{
+    margin-top: 50px;
+
+}
+
+.chat{
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 1px 1px 5px 1px rgb(182, 180, 180);
+
+    margin: 10px 0;
+
+}

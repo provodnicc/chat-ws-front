@@ -1,0 +1,29 @@
+.messanger{
+    display: block;
+
+}
+
+.content{
+    width: 50vw;
+    margin: auto;
+    height: 100vh;
+    background-color: rgb(235, 240, 240);
+    padding: 20px;
+}
+
+.content > *{
+    width: 50vw;
+}
+
+
+.inputBlock{
+    position: absolute;
+    padding: 20px 0;
+    
+    bottom: 50px;
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    background-color: rgb(235, 235, 235);
+    box-shadow: 1px 1px 1px 2px rgb(224, 224, 224);
+    border-radius: 10px;
+}

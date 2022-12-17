@@ -1,0 +1,8 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background-color: rgb(238, 237, 230);
+    font-size: 30px;
+    /* grid-template-columns: 1fr 1fr; */
+}
