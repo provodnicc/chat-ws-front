@@ -2,14 +2,14 @@ import { makeAutoObservable } from "mobx";
 
 
 class UserStore {
-    uname: string
+    uname: string | null = localStorage.getItem('uname')
     constructor(){
-        this.uname = ''
         makeAutoObservable(this)
     }
 
     init(uname: string){
-        this.uname = uname 
+        this.uname = uname
+        localStorage.setItem('uname', uname)
     }
 }
 

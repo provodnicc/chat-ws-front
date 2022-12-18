@@ -1,16 +1,21 @@
+import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 import userStore from "../../storage/userStore";
 import './signinForm.css'
 
 
-export const SignInForm = ()=>{
+export const SignInForm = observer(()=>{
     const [uname, setUname] = useState('')
     const [pass, setPass] = useState('')
     
 
-    const sendDataHandler = async () => {
+    const sendDataHandler = () => {
+        console.log(uname)
         userStore.init(uname)
-        fetch('http://localhost:5000')
+        
+        window.location.replace('/')
+        
+        // fetch('http://localhost:5000')
     }
 
     return (<div className="container">
@@ -20,4 +25,4 @@ export const SignInForm = ()=>{
         {/* <input type='password' value={pass} onChange={(e)=>setPass(e.target.value)}/> */}
         <div className='btn' onClick={sendDataHandler}>Вход</div>
     </div>)
-}
+})

@@ -1,18 +1,19 @@
+import { observer } from 'mobx-react-lite'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import io, { Socket } from 'socket.io-client'
+import userStore from '../../storage/userStore'
 import './chat.css'
 
 
-export const Chat = () => {
+export const Chat = observer(() => {
     const [socket, setSocket] = useState<Socket>()
     const [messages, setMessages] = useState<any>([])
     const [message, setMessage] = useState('')
-    const [uname, setUname] = useState('')
     localStorage.setItem('token', 'assas')
     let flag = true
     const id = useParams().id
-
+    const user = userStore
     useEffect(()=>{
         if(flag){
             const ws = io('http://localhost:9000')
@@ -64,9 +65,10 @@ export const Chat = () => {
 
 
     const send = ()=>{
+        console.log(user)
         socket?.emit('setMessage', JSON.stringify({
             chat_id: id,
-            u_name: uname,
+            uname: user.uname,
             message: message
         }))
     }
@@ -77,7 +79,7 @@ export const Chat = () => {
                 return (
                     <div key={id}>
                         <div>
-                            user: {message.u_name}
+                            user: {message.uname}
                         </div>
                         <div>
                             message: {message.message}
@@ -92,4 +94,4 @@ export const Chat = () => {
                 <button onClick={send}>send</button>
         </div>
     </div>)
-}
+})
